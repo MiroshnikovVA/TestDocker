@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebFrontEnd", "WebFrontEnd\WebFrontEnd.csproj", "{3F1FF042-C912-4864-9F1E-D6B65CE422EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{1E91C310-D34A-4A60-850C-354EC3A839CA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{92CAAC79-52DB-4864-B161-9F8E2B844A25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3F1FF042-C912-4864-9F1E-D6B65CE422EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F1FF042-C912-4864-9F1E-D6B65CE422EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F1FF042-C912-4864-9F1E-D6B65CE422EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F1FF042-C912-4864-9F1E-D6B65CE422EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E91C310-D34A-4A60-850C-354EC3A839CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E91C310-D34A-4A60-850C-354EC3A839CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E91C310-D34A-4A60-850C-354EC3A839CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E91C310-D34A-4A60-850C-354EC3A839CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92CAAC79-52DB-4864-B161-9F8E2B844A25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92CAAC79-52DB-4864-B161-9F8E2B844A25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92CAAC79-52DB-4864-B161-9F8E2B844A25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92CAAC79-52DB-4864-B161-9F8E2B844A25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FEE0C269-D9E6-421C-B048-215C71570C3D}
+	EndGlobalSection
+EndGlobal
