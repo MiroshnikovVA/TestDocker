@@ -7,6 +7,7 @@ services:
       - ASPNETCORE_HTTPS_PORT=443
       - ASPNETCORE_HTTPS_KEY_FILE=/certificate/privkey.pem
       - ASPNETCORE_HTTPS_CERTIFICATE_FILE=/certificate/cert.pem
+      - ASPNETCORE_ENVIRONMENT=Beta
     ports:
       - "80:80"
       - "443:443"
