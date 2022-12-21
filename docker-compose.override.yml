@@ -3,16 +3,17 @@ version: '3.4'
 services:
   webfrontend:
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
       - ASPNETCORE_HTTPS_PORT=443
+      - ASPNETCORE_HTTPS_KEY_FILE=/certificate/privkey.pem
+      - ASPNETCORE_HTTPS_CERTIFICATE_FILE=/certificate/fullchain.pem
     ports:
       - "80:80"
       - "443:443"
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
-      - ./certs:/etc/letsencrypt
+      - /etc/letsencrypt/live/test.cerera.xyz:/certificate
   webapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
