@@ -1,17 +1,53 @@
 version: '3.4'
 
 services:
+  redis:
+    image: redis
+
+  traefik:
+    image: traefik:v2.9
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 80:80
+      - 443:443 
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./configs/traefik.yml:/traefik.yml:ro
+      - ./configs/custom/:/custom/:ro
+      - ./data/acme.json:/acme.json
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.traefik.entrypoints=https"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.cerera.xyz`)"
+      - "traefik.http.routers.traefik.tls=true"
+      - "traefik.http.routers.traefik.tls.certresolver=letsEncrypt"
+      - "traefik.http.routers.traefik.service=api@internal"
+      - "traefik.http.services.traefik-traefik.loadbalancer.server.port=1000"
+      - "traefik.http.middlewares.traefik-auth.basicauth.users=cerera:$$apr1$$R.iYvgTc$$N9BB3lfoCdMQE1awFMcrp/"
+      - "traefik.http.routers.traefik.middlewares=traefik-auth"
+
   webfrontend:
     image: ${DOCKER_REGISTRY-}webfrontend
     build:
       context: .
       dockerfile: WebFrontEnd/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.webfrontend.rule=Host(`webfrontend.cerera.xyz`)"
+      - "traefik.http.routers.webfrontend.entrypoints=https"
+      - "traefik.http.routers.webfrontend.tls=true"
+      - "traefik.http.routers.webfrontend.tls.certresolver=letsEncrypt"
 
   webapi:
     image: ${DOCKER_REGISTRY-}webapi
     build:
       context: .
       dockerfile: WebAPI/Dockerfile
-
-  redis:
-    image: redis
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

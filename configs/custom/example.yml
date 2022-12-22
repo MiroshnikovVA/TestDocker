@@ -1,0 +1,15 @@
+http:
+  routers:
+    host:
+      entryPoints: 
+      - https
+      service: service-host
+      rule: Host(`example.cerera.xyz`) 
+      tls:
+        certResolver: letsEncrypt
+  services:
+    service-host:  
+      loadBalancer:
+        servers:
+        - url: http://cerera.xyz:9000/
+        passHostHeader: true 
