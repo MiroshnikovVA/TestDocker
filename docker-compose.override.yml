@@ -15,4 +15,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "80"
+    volumes:
+      - /etc/letsencrypt/live/test.cerera.xyz:/app/certificate
 
