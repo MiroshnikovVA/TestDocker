@@ -18,7 +18,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - ./configs/traefik.yml:/traefik.yml:ro
       - ./configs/custom/:/custom/:ro
-      - ./data/acme.json:/acme.json
+      - ~/letsencrypt:/letsencrypt
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.traefik.entrypoints=https"
