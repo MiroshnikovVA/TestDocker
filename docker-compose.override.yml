@@ -9,12 +9,12 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - /etc/letsencrypt/live/test.cerera.xyz:/app/certificate
+      - /etc/letsencrypt/live/test.cerera.xyz:/certificate
   webapi:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "80"
+      - "80:81"
     volumes:
-      - /etc/letsencrypt/live/test.cerera.xyz:/app/certificate
+      - /etc/letsencrypt/live/test.cerera.xyz:/certificate
 
